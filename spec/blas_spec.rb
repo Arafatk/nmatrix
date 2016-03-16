@@ -207,6 +207,28 @@ describe NMatrix::BLAS do
         expect(NMatrix::BLAS.nrm2(x, 1, 3)).to be_within(err).of(nrm2)
       end
 
+      it "exposes nrm2 for 0 norm" do
+        pending("broken for :object") if dtype == :object
+
+        if dtype =~ /complex/
+          x = NMatrix.new([3,1], [Complex(0,0),Complex(0,0),Complex(0,0)], dtype: dtype)
+          nrm2 = 0
+        else
+          x = NMatrix.new([3,1], [0,0,0], dtype: dtype)
+          nrm2 = 0
+        end
+
+        err = case dtype
+                when :float32, :complex64
+                  1e-6
+                when :float64, :complex128
+                  1e-14
+                else
+                  1e-14
+              end
+
+        expect(NMatrix::BLAS.nrm2(x, 1, 3)).to be_within(err).of(nrm2)
+      end
     end
   end
 end
