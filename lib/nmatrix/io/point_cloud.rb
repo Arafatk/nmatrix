@@ -9,8 +9,8 @@
 #
 # == Copyright Information
 #
-# SciRuby is Copyright (c) 2010 - 2014, Ruby Science Foundation
-# NMatrix is Copyright (c) 2012 - 2014, John Woods and the Ruby Science Foundation
+# SciRuby is Copyright (c) 2010 - 2016, Ruby Science Foundation
+# NMatrix is Copyright (c) 2012 - 2016, John Woods and the Ruby Science Foundation
 #
 # Please see LICENSE.txt for additional copyright notices.
 #
@@ -101,7 +101,8 @@ module NMatrix::IO::PointCloud
         read_entry(f, entry, ASSIGNS[i], CONVERT[i])
       end
 
-      raise(NotImplementedError, "only ASCII supported currently") unless self.data.first == :ascii
+      raise(NotImplementedError, "only ASCII supported currently") \
+       unless self.data.first == :ascii
 
       @matrix = NMatrix.new(self.shape, dtype: self.dtype)
 
@@ -150,8 +151,9 @@ module NMatrix::IO::PointCloud
     end
 
 
-    # Determine the dtype for a matrix based on the types and sizes given in the PCD.
-    # Call this only after read_entry has been called.
+    # Determine the dtype for a matrix based on the types and
+    #  sizes given in the PCD.
+    #  Call this only after read_entry has been called.
     def dtype
       @dtype ||= begin
         dtypes = self.type.map.with_index do |t,k|

@@ -9,8 +9,8 @@
 #
 # == Copyright Information
 #
-# SciRuby is Copyright (c) 2010 - 2014, Ruby Science Foundation
-# NMatrix is Copyright (c) 2012 - 2014, John Woods and the Ruby Science Foundation
+# SciRuby is Copyright (c) 2010 - 2016, Ruby Science Foundation
+# NMatrix is Copyright (c) 2012 - 2016, John Woods and the Ruby Science Foundation
 #
 # Please see LICENSE.txt for additional copyright notices.
 #
@@ -50,11 +50,11 @@ module NMatrix::IO::Matlab
     }
 
     DTYPE_PACK_ARGS = {
-      :byte       => [Integer, {:signed => false,      :bytes => 1}],
-      :int8       => [Integer, {:signed => true,       :bytes => 1}],
-      :int16      => [Integer, {:signed => true,       :bytes => 2}],
-      :int32      => [Integer, {:signed => true,       :bytes => 4}],
-      :int64      => [Integer, {:signed => true,       :bytes => 8}],
+      :byte       => [Integer, {:signed => false, :bytes => 1}],
+      :int8       => [Integer, {:signed => true,  :bytes => 1}],
+      :int16      => [Integer, {:signed => true,  :bytes => 2}],
+      :int32      => [Integer, {:signed => true,  :bytes => 4}],
+      :int64      => [Integer, {:signed => true,  :bytes => 8}],
       :float32    => [Float,   {:precision => :single, :bytes => 4, :endian => :native}],
       :float64    => [Float,   {:precision => :double, :bytes => 8, :endian => :native}],
       :complex64  => [Float,   {:precision => :single, :bytes => 4, :endian => :native}], #2x
